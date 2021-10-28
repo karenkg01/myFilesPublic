@@ -1,0 +1,141 @@
+Using Prop in ReactJS
+
+Create a HouseFull component that has a boolean prop hasSeat. The component should render a div with either the text HouseFull or Vacant depending on the prop.
+
+import React, { Component } from 'react';
+import { configure } from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
+configure({ adapter: new Adapter() });
+
+
+
+class HouseFull extends Component {   
+
+// constructor(props){
+//   this.state = {
+//     hasSeat: props.hasSeat
+//   }
+// }
+
+// component code goes here and call the component in index.js
+
+  render() {
+  
+  
+  return <div>{
+    this.props.hasSeat ? "Vacant" : "HouseFull"}</div>;
+  }
+    
+}
+
+export default HouseFull;
+
+
+import React from 'react';
+import ReactDOM from 'react-dom';
+import './index.css';
+import HouseFull from './HouseFull';
+import registerServiceWorker from './registerServiceWorker';
+
+
+ReactDOM.render(
+ 
+    <HouseFull />,
+ 
+  document.getElementById('root')
+);
+////////////////////////////////////////
+Hello World
+import React, { Component } from 'react';
+import { configure } from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
+configure({ adapter: new Adapter() });
+
+
+//create a component called App and render Bonjour in it
+
+export default class App extends Component {
+  
+  render(){
+    return(<div>Bonjour</div>);
+  }
+}
+////////////////////////////////////////
+Using Events in React
+create a button that will increment the state of a variable count by 1.
+use onClick event to call a function handleClick, and update the state  of the count variable.
+
+import React, { Component } from 'react';
+import { configure } from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
+configure({ adapter: new Adapter() });
+
+
+
+class App extends Component {
+    
+   constructor(props){
+     super(props)
+     this.state = {
+       count: 0
+     };
+     this.handleClick = this.handleClick.bind(this)
+;   }
+
+ handleClick (){
+     this.setState (prevState => ({count:prevState.count + 1}))
+}
+
+   render(){
+     return (
+     <button onClick={this.handleClick}>Count:{this.state.count}</button>
+     )
+   }
+}
+
+export default App;
+/////////////////////////////////////////
+create a button that will increment the state of a variable count by 1.
+
+use onClick event to call a function handleClick, and update the state of the count variable.
+
+use ComponentDidMount, ComponentWillMount, componentDidUpdate, and ComponentWill update Lifecycle events  and analyze the order in which they are invoked. View the output in the console by inspecting the elements. 
+
+import React, { Component } from 'react';
+import { configure } from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
+configure({ adapter: new Adapter() });
+
+
+
+    
+  class App extends Component {
+    
+   constructor(props){
+     super(props)
+     this.state = {
+       count: 0
+     };
+     this.handleClick = this.handleClick.bind(this)
+;   }
+
+ handleClick (){
+     this.setState (prevState => ({count:prevState.count + 1}))
+}
+
+componentWillUpdate(){}
+componentDidMount(){}
+componentWillMount(){}
+componentDidUpdate(){}
+
+   render(){
+     return (
+     <button onClick={this.handleClick}>Count:{this.state.count}</button>
+     )
+   }
+}
+
+
+
+
+export default App;

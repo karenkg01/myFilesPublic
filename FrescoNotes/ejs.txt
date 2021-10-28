@@ -1,0 +1,77 @@
+Block Scope Variables				**PASSED
+1. create a function maximum which accepts 2 numeric values and finds the maximum.
+note: make sure you have returned the resulting value in the function.
+
+let maximum = (a,b) => {
+  var maxA = a;
+  var maxB = b;
+  if (maxA > maxB) {
+    return(maxA);
+  } else {
+    return(maxB);
+  }
+maximum(a,b) 
+}
+
+
+
+
+module.exports = {maximum}
+//////////////////////////////////////////////
+2. es6 sum numbers				**PASSED
+You need to define a function which will add numbers and return the sum.
+Use the rest operator feature of ES6+ to accept numbers from the user and calculate the sum
+
+const sum = (...args) => {
+   var sum = 0;
+    args.forEach(function(args)
+    {
+        sum = sum + args;     
+    });
+    return sum;
+}
+
+
+
+module.exports = {sum}
+////////////////////////////////////////////
+es6 destructuring				**PASSED
+3. var states=[['Tamilnadu'],['Punjab',Haryana']];
+
+Define Chennai and Chandigarh variables using Destructuring so that variables Chennai = ['Tamilnadu'], Chandigarh= ['Punjab', 'Haryana']
+Note: Make sure you have exported the deconstructured variable Chennai and Chandigarh
+
+Sol:
+const states = [Chennai, Chandigarh] = [['Tamilnadu'], ['Punjab', 'Haryana']];
+
+module.exports = {Chennai, Chandigarh}
+///////////////////////////////////////////////////
+Arrow Function						* NOT DONE
+4. Write a arrow function which takes your name as input and returns "Hello your_name"
+
+const greet = (name) => {
+  name: name
+  sayHello:()=> {
+        console.log(`Hello ${name}`);
+  }
+};
+
+greet.sayHello();
+
+module.exports = {greet}
+/////////////////////////////////////////////
+Template Literals
+let a=1;letb=2;
+Achive the following output using template literals
+"The sum of 1 and 2 is 3"
+
+const sum = (a,b) => {
+   return `The sum of ${a} and ${b} is ${a + b}`;
+}
+module.exports = {sum}
+/////////////////////////////////////////////
+
+
+
+
+

@@ -1,0 +1,56 @@
+
+
+       
+//Write a test in Jest that checks the length of the tasks array.
+// test('Task array length', () => {
+//     var tasks = [];
+//     tasks = [{task_name:"Task 1", status:"open"}, {task_name:"Task 2", status:"closed"}];
+//     expect(tasks.length).toBe(3)
+// });
+
+test('length not a negative', () => {
+    var tasks=[];
+    tasks=['task one', 'task two'];
+    expect(tasks.length).not.toBeLessThan(0);
+});
+
+
+test('updateTask', () => {
+    var tasks = [];
+    tasks = [{task_name:"Task 1", status:"open"}, {task_name:"Task 2", status:"closed"}];
+    function updateTask(index,update_task){
+
+        if(index > tasks.length-1){throw new Error('ArrayOut of bound Exception');}
+        }
+    expect(()=>{updateTask(2)}).toThrow();
+});
+//// Here successMessage() has to be called only after the function addTask(task_name) adds the task tasks[] array.
+
+write your code in "index.test.js" file
+test('async', () => {
+    expect.assertions(1)
+    expect(addTask(task_name).then(successCall())).resolves.toBe('success')
+
+});
+
+//write a test for the above function, which mocks the real implementation of returnin success flag to returning the closed task itself.
+// test('closingTask', () => {
+    
+    var tasks = [];
+    tasks = [{task_name:"Task 1", status:"open"}, {task_name:"Task 2", status:"closed"}];
+
+    const mocked = jest.genMockFn();
+
+        mocked.mockImplementation(function (task_name) {
+        var success_flag = false;
+        for(var i=0 ;i<task.length; i++){
+            if(tasks[i].task_name===task_name){
+                tasks[i].status = 'closed';
+                success_flag=true
+            }
+        }
+        return success_flag;;
+  
+   });
+   
+});

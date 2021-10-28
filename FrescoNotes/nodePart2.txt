@@ -1,0 +1,230 @@
+1. Find the difference between the sum of the squares of the first hundred natural numbers, and the square of the sum.
+
+
+
+2. sum of Multiples:                                                * PASSED
+Find the sum of all the multiples of 3 or 5, below 1000
+var sum = 0;
+for (var x = 0; x < 1000; x++)
+{
+    if (x % 3 === 0 || x % 5 === 0)
+    {
+       sum += x;
+    }
+}
+console.log(sum);
+/////////////////////////////////////////////////////
+
+function largestPrimeFactor(n) {
+   var i = 2;
+   while (i <= n) {
+      if (n % i == 0) {
+         n /= i;
+      } else {
+         i++;
+      }
+   }
+   console.log(i);
+}
+
+////// FIB ////////////////////
+let fib = []; 
+////// PALINDROME 
+const isPalindrome = val => {
+    let og = val /// store the original number
+
+    let reversedVal = parseInt(val.toString().split('').reverse().join(''))
+    // val.toString()   /// convert value to string - because strings can be split into an array
+    //.split('')        /// split the string at '' (nothing) - returns the split array
+    //.reverse()        /// reverse the array
+    //.join()           /// join the array elements at a character '' (nothing)
+    // parseInt(...)    /// wrap all in parse in to extract the integer from the string
+    return og === reversedVal
+}
+
+//- Find the largest 3 digit numbers whose product creates a palindrome
+
+
+let arr = []
+
+for(let i = 100; i < 1000; i++){
+    for(let x = 100; x < 1000; x++){
+        // console.log(`product of: ${i} x ${x}`)
+        isPalindrome(i * x) && arr.push(i*x)
+        //- SHORT CIRCUIT
+        /// if the first part of an AND is false - the comparison quits - never executes the second half
+        /// if the first part of an AND is true - it wi
+From Michael Jannetta to Everyone:  05:10 PM
+ll execute the second hald
+    }
+}
+
+let maxThreeDigitPalindrome = Math.max(...arr)
+
+console.log(maxThreeDigitPalindrome)
+////////////////////////////////////////////////////
+If the string is palindrome then print true or else print false.
+Palindrome
+process.stdin.resume();
+process.stdin.setEncoding("ascii");
+var input = "";
+process.stdin.on("data", function (chunk) {
+    input += chunk;
+});
+
+
+process.stdin.on("end", function (input) {
+   function isPalindrome(val){
+    let original = val 
+
+    let reversedVal = val.split('').reverse().join('')
+
+    return original === reversedVal 
+       
+   }
+   isPalindrome(input);
+
+});
+///////////////////////////////////////////////
+Evently divisible Number
+function smallestMult(n) {
+    // setup state
+    let inc = 2;
+    let step = 2;
+    let smallestNum = 2;
+
+      // loop over all numbers until we find the right one.
+      // The sky is the limit!
+    while (smallestNum <= Number.MAX_SAFE_INTEGER) {
+        console.log(`smallestNum: ${smallestNum}`)
+
+
+          // start from our step value
+      for (let i = 2; i <= n; i++) {
+              // check if its divisible
+              // console.log(`${smallestNum} % ${i}`)
+        const divisible = smallestNum % i === 0;
+        // if it is not divisible, skip to the next number
+        if (!divisible) {
+            console.log('break ----------------------------------------------')
+          break;
+        }
+              // if it is divisible, increase our step to be our next num
+        if (i === inc) {
+            // console.log(`set step:  ${smallestNum}`)
+          step = smallestNum;
+          // increase our global incrementer by 1
+          inc++;
+        }
+              // check if i is equal to our las
+console.log(smallestMult(20))
+////////////////////////////////////////////////////
+PASS
+Find the difference between the sum of the squares of the first hundred numbers, and the square of the sum.
+
+let sum = 0
+let squared = 0
+let result = 0
+
+for(let i = 1; i <= 100; i++){
+    sum += i
+    squared += i * i
+}
+
+result = sum * sum - squared
+
+console.log(result)
+///////////////////////////////////
+PASS
+in a list of the first 6 prime numbers: 2, 3, 5, 7, 11, and 13, the 6th prime number is 13.
+What is the 10001st prime number?
+
+function isPrime(num) {
+    for ( var i = 2; i < num; i++ ) {
+        if ( num % i === 0 ) {
+            return false;
+        }
+    }
+    return true;
+}
+
+
+var arr = [2];
+
+for ( var i = 3; i < 200000; i+=2 ) {
+    if ( isPrime(i) ) {
+        arr.push(i);
+    }
+}
+
+console.log(arr[10000])
+/////////////////////////////////////
+PASS
+A pythagorean triplet is a set of three natural numbers, a<b<c, for which, a2+b2=c2.
+For a pythagorean triplet where a + b + c = 1000, find the product of abc.
+
+let 
+a = 0, 
+b = 0, 
+c = 0;
+let found = false;
+let result = null
+
+const s = 1000;
+
+
+for (a = 1; a < s / 3; a++) {
+    for (b = a; b < s / 2; b++) {
+        c = s - a - b;
+ 
+        if ((a * a) + (b * b) == (c * c)) {
+            result = a * b * c
+            break;
+        }
+    }
+}
+
+console.log(result)
+///////////////////////////////////////////////////////
+Events - Working with files
+
+
+//import the 'fs' and 'maths.js' module
+const fs = require("fs")
+const math = require("./maths.js")
+//read the content of 'input.txt' file and copy the content to 'duplicate.txt' file
+
+fs.copyFile('input.txt', 'duplicate.txt', (err) => {
+  if (err) throw err;
+  console.log('input.txt was copied to duplicate.txt');
+});
+
+//call the 'sum and 'multiply' functions of maths module and store the return values in 'result' and 'product' variables
+
+let result = math.sum(2,3);
+let product = math.multiply(2,3);
+
+//write the content 'The sum of the numbers is: result. The product of the numbers is: product' to the 'output.txt' file
+let string = `The sum of the numbers is: ${result}. The product of the numbers is: ${product}`;
+fs.writeFile('output.txt', string, (err) => {
+  if (err) throw err;
+  console.log('input.txt writed to duplicate.txt');
+});
+//////////////////////////////////
+Copy Stream
+
+
+const fs = require('fs')
+
+var readable = fs.createReadStream(__dirname + '/data_file.txt', { encoding: 'utf8'});
+
+var writable = fs.createWriteStream(__dirname + '/new_data_file.txt');
+
+readable.pipe(writable);
+
+
+
+
+
+
+
