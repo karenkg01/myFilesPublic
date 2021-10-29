@@ -254,13 +254,14 @@ Working with timers:
 function Description
 compleate the function "logString" in the editor below. "logString" has the following parameters
 
-
+   const EventEmitter = require('events');
+   
    process.stdin.on("end", function () {
     var splitString = input.split(' ');
     var n1= parseInt(splitString[0]);
     var n2= parseInt(splitString[1]);
      
-  var eventE = new eventEmitter(); 
+  var eventEmitter = new EventEmitter(); 
 
     function findSum (cb){ 
         var sum = 0; 
@@ -277,13 +278,13 @@ compleate the function "logString" in the editor below. "logString" has the foll
 
     findSum(delayedFunc); 
 
-    eventE.on('MyEvent', logInfo); 
+    eventEmitter.on('MyEvent', logInfo); 
 
     function logInfo(input){ 
         console.log(`Multiples of ${n1} & ${n2}`) 
     } 
     
-    eventE.emit('MyEvent', "");
+    eventEmitter.emit('MyEvent', "");
 
 });
 
