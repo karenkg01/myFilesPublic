@@ -13,6 +13,32 @@ for (var x = 0; x < 1000; x++)
     }
 }
 console.log(sum);
+//////////////////////////////
+sum of Multiples:
+var splitString = input.split(' ');
+    var n1= parseInt(splitString[0]);
+    var n2= parseInt(splitString[1]);
+     
+    var eventEmitter = new EventEmitter();
+    var sum = 0;
+    for (var x = 0; x <= 1000; x++)
+    {
+        if(x % n1 == 0){
+            sum += x;
+        }
+        if(x % n2 == 0){
+            sum += x;
+        }
+        
+    }
+    
+    eventEmitter.on('MyEvent', logInfo);
+    
+    function logInfo(input){
+            console.log("Multiples of " + n1 + " & " + n2);
+            console.log(sum);
+    }
+        eventEmitter.emit('MyEvent', "");
 /////////////////////////////////////////////////////
 
 function largestPrimeFactor(n) {
@@ -74,15 +100,17 @@ process.stdin.on("data", function (chunk) {
 
 
 process.stdin.on("end", function (input) {
-   function isPalindrome(val){
+  function isPalindrome(val){
     let original = val 
 
     let reversedVal = val.split('').reverse().join('')
 
-    return original === reversedVal 
+    return (original.toLowerCase() === reversedVal.toLowerCase()).toString()
+
        
    }
-   isPalindrome(input);
+   process.stdout.write(isPalindrome(input));
+   //process.stdout.write(input.toString());
 
 });
 ///////////////////////////////////////////////
@@ -221,10 +249,164 @@ var readable = fs.createReadStream(__dirname + '/data_file.txt', { encoding: 'ut
 var writable = fs.createWriteStream(__dirname + '/new_data_file.txt');
 
 readable.pipe(writable);
+///////////////////////////////////////
+Working with timers:
+function Description
+compleate the function "logString" in the editor below. "logString" has the following parameters
 
 
+   process.stdin.on("end", function () {
+    var splitString = input.split(' ');
+    var n1= parseInt(splitString[0]);
+    var n2= parseInt(splitString[1]);
+     
+  var eventE = new eventEmitter(); 
+
+    function findSum (cb){ 
+        var sum = 0; 
+        for (var x = 0; x <= 1000; x++) 
+        { if(x % n1 == 0){ sum += x; } 
+        if(x % n2 == 0){ sum += x; } 
+        } 
+        cb(sum)
+    } 
+
+    function delayedFunc(x){
+        setTimeout(()=>console.log(x), 2000);
+    }
+
+    findSum(delayedFunc); 
+
+    eventE.on('MyEvent', logInfo); 
+
+    function logInfo(input){ 
+        console.log(`Multiples of ${n1} & ${n2}`) 
+    } 
+    
+    eventE.emit('MyEvent', "");
+
+});
+
+/////////////////////////////////////
+Find the Sum of all the Primes below 2 million
+   function sumOfPrime(x) {
+        var array = [];
+         sum=0;
+        for (var i=2; i<x; i++) {
+            if(typeof array[i] === 'undefined') {
+                array[i]=true;
+                for(var j = (i+i); j<x; j+=i) {
+                    array[j]=false;
+                }
+                if (array[i]) {
+                    sum+=i;
+                }
+            }
+        }
+        return sum;
+    }
+
+    console.log(sumOfPrime(2000000));
+//////////////////////////////////////
+The variable input has the value. Extract n1 and n2 from the input.
+Write a function to find the sum of all multiples of n1 and n2, below and including 1000. This function should log the sum after 2 seconds.
+ 
+process.stdin.on("end",function() {
+
+});
+////////////////////////////////////////////
+2520 is the smallest number that can be divided by each of the numbers from 1 to 10, without any remainder.
+
+What is the smallest positive number that is evenly divisible from 1 to 20?
+function smallestDivisible(limit) {
+    var i, n = 1;
+
+    function largestPower(n, limit) {
+        var p, e = 2, largest = n;
+        while ((p = Math.pow(n, e)) <= limit) {
+            largest = p;
+            e += 1;
+        }
+        return largest;
+    }
+
+    function isPrime(n) {
+        var i, limit = Math.ceil(Math.sqrt(n));
+        // since the main loop generates odd numbers only
+        // we can start testing primality dividing by 3
+        for (i = 3; i <= limit; i += 2) {
+            if (n % i === 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    for (i = 3; i <= limit; i += 2) {
+        if (isPrime(i)) {
+            n *= largestPower(i, limit);
+        }
+    }
+
+    return n * largestPower(2, limit);
+}
+
+console.log(smallestDivisible(20));
+////////////////////////////////////////////////////
+var http = require('http');
+const url = require('url');
+const express = require('express');
+const app =express()
+//write your code here
+
+const port = 8000;
+
+app.get('/cal', (req,res)=> { 
+     //console.log(req.query.func) 
+     let a = parseInt(req.query.a)
+     let b = parseInt(req.query.b)
+
+     switch(req.query.func){
+         case 'add':{
+            res.send(`Addition is: ${a+b}`)
+         };break;
+         case 'subtract':{
+            res.send(`Subtraction is: ${a-b}`)
+        };break;
+        case 'multiple':{
+            res.send(`Multiple is: ${a*b}`)
+        };break;
+     }
+}); 
+
+app.post('/cal', (req,res)=> { 
+    //console.log(req.query.a) 
+    let a = parseInt(req.query.a)
+    let b = parseInt(req.query.b)
+    res.send(`Division is: ${a/b}`)
+
+}); 
 
 
+app.listen(port, ()=> {
+  //console.log("Server is running on port ", port);
+})
 
+.....ERROR
+On branch master
+Your branch is ahead of 'origin/master' by 3 commits.
+(use "git push" to publish your local commits)
 
+nothing to commit, working tree clean
+remote: [31m_______________________________________________________________________
+remote: ___ __ __ __ __
+remote: |__ |__) |__) / \ |__)
+remote: |___ | \ | \ \__/ | \
+remote:
+remote: Attempting to modify read only files:
+remote: package.json
+remote: _______________________________________________________________________[0m
+To https://git-rba.hackerrank.com/git/2bec7be7-7aee-40d1-92e0-95dc38c045dd
+! [remote rejected] master -> master (pre-receive hook declined)
+error: failed to push some refs to 'https://git-rba.hackerrank.com/git/2bec7be7-7aee-40d1-92e0-95dc38c045dd'
 

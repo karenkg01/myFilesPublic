@@ -70,6 +70,57 @@ const sum = (a,b) => {
 }
 module.exports = {sum}
 /////////////////////////////////////////////
+Create a class Car with a constructor function that accepts 2 parameters (name and distance). include a prototype method in a class, which returns a message(msg)"(car name) had travelled for  (distance) miles".
+
+
+class Car {
+  constructor(name, distance) {
+    this.name = name;
+    this.distance = distance;
+
+  }
+  carDistance() {
+    return `${this.name} had travelled for ${this.distance} miles`;
+  }
+}
+let Car1 = new Car('Audi', 100);
+const msg = Car1.carDistance();
+
+console.log(msg);
+
+
+
+module.exports = {msg}
+//////////////////////////////////////
+create an object Employee with properties:
+--name as "rajesh"......
+Solution:
+var email = Symbol();
+
+var Employee = {
+  name : "rajesh",
+  phone :9800000000,
+  [email] : "rajesh@gmail.com"
+};
+
+var allKeys = Reflect.ownKeys(Employee);
+var privateKeys = Object.getOwnPropertySymbols(Employee);
+var publicKeys =  Object.getOwnPropertyNames(Employee);
+
+module.exports = {Employee, allKeys, privateKeys, publicKeys}
+///////////////////////////////////////////////////
+Arrow Function
+
+Write an arrow function which will takes your name as input and returns "Hello your_name"
+
+Solution:
+
+
+const greet = (your_name) => {
+    return ('Hello ' + your_name);
+};
+module.exports = {greet}
+
 
 
 
