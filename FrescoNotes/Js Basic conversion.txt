@@ -1,0 +1,115 @@
+1. NPM commands to execute script
+{
+  "name": "npm_commands",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run release | tee output1.txt && npm run build | tee output.txt",
+    "build": "node index.js",
+    "release": "npm --version && node --version"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://git-rba.hackerrank.com/git/cd1304ca-d427-4619-b69f-642a95b9c13f"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
+
+
+1. Js Qualis - javascript Basic conversion Application using Mocha Chai Testing Starting a Web Server and Viewing the app
+var assert = require("assert");
+var converter = require('../src/index');
+
+describe('Converter', function(){
+
+     // Write your code here
+    
+     it("length test case", async() => {
+         assert.equal(converter.lengthConvert(2,4),8);
+    });
+     it("weigth test case", async() => {
+         assert.equal(converter.weightConverter(4,2),2);
+    });
+     it("temp test case", async() => {
+        assert.equal(converter.tempConverter(4,2,4),12);
+    });
+     it("speed test case", async() => {
+         assert.equal(converter.speedConverter(2,4),8);
+    });
+});
+
+
+2. Write a unit test using Mocha asynchronous callback for a javascript function that reads contents from a text file.
+
+
+const should = require('chai').should();
+const expect = require('chai').expect;
+
+const {
+	readFruit
+}=require('../index');
+
+describe('#index', ()=>{
+
+	describe('#readFruit',  ()=>{
+
+      it('should read the fruit file', async (done)=> {
+        try{
+          expect(readFruit).to.equal('banana')
+           done()
+        }catch(err){
+          done(err)
+        }
+      })
+      
+
+	});
+
+});
+
+
+3. JsQualis- Applicacati
+
+var assert = require("assert");
+var crud = require('../src/index');
+
+describe('Crud application', function(){
+    //write your code here
+
+    // it("Don't remove this dummy test case as its required for validation", async() => {
+    //     const dummy = [{}];
+    //     dummy.should.have.length(1);
+    // });
+       it("addDetail test case", async() => {
+        const dummy = crud.addDetails()
+        assert.equal(dummy.length,1)
+    });
+       it("deleteDetail test case", async() => {
+        const dummy = crud.deleteDetails()
+        assert.equal(dummy.length,1)
+    });
+       it("editDetails test case", async() => {
+        const dummy = crud.editDetails()
+        assert.equal(dummy.length, 1)
+    });
+     it("updateDetails test case", async() => {
+        const dummy = crud.updateDetails()
+        assert.equal(dummy.length,3)
+    });
+     it("detailsPop test case", async() => {
+        const dummy = crud.detailsPop()
+        assert.equal(dummy.length,1)
+    });
+      it("concatData test case", async() => {
+        const dummy = crud.concatData()
+        assert.equal(dummy.length,2)
+    });
+
+  
+});
+
+
+
